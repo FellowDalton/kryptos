@@ -18,10 +18,10 @@ export default function Home() {
         </div>
 
         {/* Primary CTA */}
-        <div className="space-y-8 pt-8">
+        <div className="space-y-6 pt-8">
           <Link
             href="/meditate/standard"
-            className="inline-block px-8 py-4 rounded-lg bg-accent text-background font-medium text-lg hover:opacity-90 transition-all duration-300"
+            className="block w-full sm:inline-block sm:w-auto px-8 py-4 rounded-lg bg-accent text-background font-medium text-lg hover:opacity-90 transition-all duration-300 min-h-[44px]"
           >
             Begin Today&apos;s Meditation
           </Link>
@@ -30,7 +30,7 @@ export default function Home() {
           <div>
             <Link
               href="/create"
-              className="inline-block px-6 py-3 rounded-lg border border-accent text-accent hover:bg-accent hover:text-background transition-all duration-300"
+              className="block w-full sm:inline-block sm:w-auto px-6 py-3 rounded-lg border border-accent text-accent hover:bg-accent hover:text-background transition-all duration-300 min-h-[44px]"
             >
               Create Custom Meditation
             </Link>

@@ -210,20 +210,20 @@ export default function CreatePage() {
     <div className="min-h-screen bg-stone-50">
       {/* Header */}
       <div className="bg-white border-b border-stone-200">
-        <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
-          <h1 className="text-3xl md:text-4xl font-light text-stone-900 mb-3">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 mb-2 sm:mb-3">
             Create Your Custom Meditation
           </h1>
-          <p className="text-stone-600 text-lg">
+          <p className="text-stone-600 text-base sm:text-lg">
             Choose techniques for each section and customize durations to craft your perfect meditation session.
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12">
         {/* Session Name Input */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <label htmlFor="session-name" className="block text-sm font-medium text-stone-700 mb-2">
             Session Name
           </label>
@@ -232,13 +232,13 @@ export default function CreatePage() {
             type="text"
             value={sessionName}
             onChange={(e) => setSessionName(e.target.value)}
-            className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent min-h-[44px] text-base"
             placeholder="Enter a name for your custom session"
           />
         </div>
 
         {/* Section Selectors */}
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-6 sm:space-y-8 md:space-y-12">
           {sectionSelections.map((selection, index) => {
             const bounds = getTechniqueBounds(selection);
             const selectedTechnique = selection.availableTechniques.find(
@@ -248,20 +248,20 @@ export default function CreatePage() {
             return (
               <div
                 key={selection.section.id}
-                className="bg-white rounded-lg border border-stone-200 p-6 md:p-8"
+                className="bg-white rounded-lg border border-stone-200 p-5 sm:p-6 md:p-8"
               >
                 {/* Section Header */}
-                <div className="mb-6">
-                  <h2 className="text-2xl font-light text-stone-900 mb-2">
+                <div className="mb-5 sm:mb-6">
+                  <h2 className="text-xl sm:text-2xl font-light text-stone-900 mb-2">
                     {selection.section.displayName}
                   </h2>
-                  <p className="text-stone-600">
+                  <p className="text-stone-600 text-sm sm:text-base">
                     {selection.section.description}
                   </p>
                 </div>
 
                 {/* Technique Selector */}
-                <div className="mb-6">
+                <div className="mb-5 sm:mb-6">
                   <label
                     htmlFor={`technique-${index}`}
                     className="block text-sm font-medium text-stone-700 mb-2"
@@ -272,7 +272,7 @@ export default function CreatePage() {
                     id={`technique-${index}`}
                     value={selection.selectedTechniqueId || 'skip'}
                     onChange={(e) => handleTechniqueChange(index, e.target.value)}
-                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent bg-white"
+                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent bg-white min-h-[44px] text-base"
                   >
                     <option value="skip">Skip this section</option>
                     {selection.availableTechniques.map((technique) => (
@@ -321,11 +321,11 @@ export default function CreatePage() {
         </div>
 
         {/* Total Duration & Actions */}
-        <div className="mt-12 bg-white rounded-lg border border-stone-200 p-6 md:p-8">
+        <div className="mt-8 sm:mt-12 bg-white rounded-lg border border-stone-200 p-5 sm:p-6 md:p-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <div className="text-sm text-stone-600 mb-1">Total Duration</div>
-              <div className="text-4xl font-light text-stone-900">
+              <div className="text-3xl sm:text-4xl font-light text-stone-900">
                 {totalMinutes} {totalMinutes === 1 ? 'minute' : 'minutes'}
               </div>
             </div>
@@ -334,13 +334,13 @@ export default function CreatePage() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="px-6 py-3 border border-stone-300 rounded-lg text-stone-700 hover:bg-stone-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-3 border border-stone-300 rounded-lg text-stone-700 hover:bg-stone-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] text-base font-medium"
               >
                 {saving ? 'Saving...' : 'Save Custom Session'}
               </button>
               <button
                 onClick={handleStartMeditation}
-                className="px-6 py-3 bg-stone-900 text-white rounded-lg hover:bg-stone-800 transition-colors"
+                className="px-6 py-3 bg-stone-900 text-white rounded-lg hover:bg-stone-800 transition-colors min-h-[44px] text-base font-medium"
               >
                 Begin Meditation →
               </button>

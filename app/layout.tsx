@@ -22,6 +22,22 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
           rel="stylesheet"
         />
+        {/* Prevent flash of unstyled content (FOUC) by setting theme before React hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('praylude_theme') || 'dark';
+                  document.documentElement.classList.toggle('dark', theme === 'dark');
+                } catch (e) {
+                  // Fallback to dark mode if localStorage is not available
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="antialiased">
         <Header />

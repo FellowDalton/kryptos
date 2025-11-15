@@ -16,6 +16,7 @@
   --error: #8B5A5A;
 }
 
+/* Dark mode - system preference */
 @media (prefers-color-scheme: dark) {
   :root {
     /* Dark Mode (Default) */
@@ -30,6 +31,21 @@
     --warning: #A67C52;
     --error: #8B5A5A;
   }
+}
+
+/* Dark mode - manual toggle (overrides system preference) */
+:root.dark {
+  /* Dark Mode (Default) */
+  --background: #0A0A0A;
+  --surface: #1A1A1A;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A0A0A0;
+  --accent: #D4C5A9;
+
+  /* Semantic Colors - Dark Mode */
+  --success: #5A7D5F;
+  --warning: #A67C52;
+  --error: #8B5A5A;
 }
 
 @theme inline {
@@ -127,4 +143,20 @@ h4, h5, h6 {
 
 .ma-comfortable {
   padding: var(--spacing-xl);
+}
+
+/* Smooth theme transitions */
+:root {
+  color-scheme: light dark;
+}
+
+:root,
+body,
+* {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+
+/* Prevent transitions on page load */
+.no-transition * {
+  transition: none !important;
 }
