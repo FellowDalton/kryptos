@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* Praylude Design System - Japanese Ma Inspired */
+
+:root {
+  /* Light Mode (Optional) */
+  --background: #FAFAFA;
+  --surface: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --accent: #8B7355;
+
+  /* Semantic Colors - Light Mode */
+  --success: #5A7D5F;
+  --warning: #A67C52;
+  --error: #8B5A5A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode (Default) */
+    --background: #0A0A0A;
+    --surface: #1A1A1A;
+    --text-primary: #F5F5F5;
+    --text-secondary: #A0A0A0;
+    --accent: #D4C5A9;
+
+    /* Semantic Colors - Dark Mode */
+    --success: #5A7D5F;
+    --warning: #A67C52;
+    --error: #8B5A5A;
+  }
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+
+  /* Spacing Scale - 8px grid system */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+
+  /* Typography Scale */
+  --font-size-h1: 2.5rem;     /* 40px */
+  --font-size-h2: 1.875rem;   /* 30px */
+  --font-size-h3: 1.5rem;     /* 24px */
+  --font-size-body: 1.125rem; /* 18px */
+  --font-size-small: 0.875rem; /* 14px */
+
+  /* Font Families */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-scripture: 'Lora', Georgia, serif;
+
+  /* Border Radius */
+  --radius-button: 8px;
+  --radius-card: 12px;
+
+  /* Shadows */
+  --shadow-card-light: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-card-dark: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  /* Animation Timings */
+  --duration-fast: 200ms;
+  --duration-medium: 300ms;
+  --duration-slow: 500ms;
+
+  /* Line Heights */
+  --line-height-heading: 1.2;
+  --line-height-body: 1.6;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-family-primary);
+  line-height: var(--line-height-body);
+  font-size: var(--font-size-body);
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-heading);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-heading);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-heading);
+}
+
+h4, h5, h6 {
+  line-height: var(--line-height-heading);
+}
+
+/* Scripture text styling */
+.scripture {
+  font-family: var(--font-family-scripture);
+  line-height: var(--line-height-body);
+}
+
+/* Utility classes for Japanese Ma spacing */
+.ma-spacious {
+  padding: var(--spacing-3xl);
+}
+
+.ma-generous {
+  padding: var(--spacing-2xl);
+}
+
+.ma-comfortable {
+  padding: var(--spacing-xl);
+}
